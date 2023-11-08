@@ -1,10 +1,13 @@
 public class Conditionals {
+
     public static void main(String[] args) {
         new Conditionals();
     }
     public Conditionals(){
-        String question = "Would a woodchuck chuck wood if a woodchuck could chuck wood?";
-        System.out.println(question);
+        System.out.println("What is your question?");
+        java.util.Scanner scanner =  new java.util.Scanner(System.in);
+        String Question = scanner.nextLine();
+        System.out.println(Question);
         int RandomInt = (int)(11*Math.random());
         if (RandomInt == 0){
             System.out.println("Concentrate and ask again");
