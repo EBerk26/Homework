@@ -7,7 +7,6 @@ public class Conditionals {
         System.out.println("What is your question?");
         java.util.Scanner scanner =  new java.util.Scanner(System.in);
         String Question = scanner.nextLine();
-        System.out.println(Question);
         int RandomInt = (int)(11*Math.random());
         if (RandomInt == 0){
             System.out.println("Concentrate and ask again");
