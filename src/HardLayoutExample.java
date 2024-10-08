@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-
 public class HardLayoutExample {
     public static void main(String[] args) {
         new HardLayoutExample();
@@ -20,21 +19,20 @@ public class HardLayoutExample {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(700,800);
 
-
-        JPanel mainPanel = new JPanel(new BorderLayout());
+        JPanel mainPanel = new JPanel(new GridLayout(2,1));
         JPanel bigTop = new JPanel(new GridLayout(1,2));
-
         JPanel topLeftGrid = new JPanel(new GridLayout(3,3));
-        bigTop.setPreferredSize(new Dimension(700,400));
         JPanel topRight = new JPanel(new GridLayout(2,1));
-        JPanel bottom = new JPanel(new GridLayout(1,9));
+        JPanel bottomLine = new JPanel(new GridLayout(1,9));
+        JPanel largerBottomPanel = new JPanel(new BorderLayout());
 
         frame.add(mainPanel);
-        mainPanel.add(bigTop,BorderLayout.NORTH);
-        bigTop.setSize(700,200);
+        mainPanel.add(bigTop);
+        mainPanel.add(largerBottomPanel);
         bigTop.add(topLeftGrid);
         bigTop.add(topRight);
-        mainPanel.add(bottom,BorderLayout.SOUTH);
+        largerBottomPanel.add(bottomLine, BorderLayout.SOUTH);
+
 
         JButton[] topButtons = new JButton[5];
         for(int x =1;x<=4;x++){
@@ -48,5 +46,30 @@ public class HardLayoutExample {
         }
         topLeftGrid.add(top0[5]);
 
+        JLabel topRightLabel = new JLabel("TopRight");
+        topRightLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        topRight.add(topRightLabel);
+
+        JButton topRightButton = new JButton("1");
+        topRightButton.setHorizontalAlignment(SwingConstants.CENTER);
+        topRight.add(topRightButton);
+
+        JLabel[] label0 = new JLabel[6];
+        for(int x =1;x<=5;x++){
+            label0[x] = new JLabel("0");
+            label0[x].setHorizontalAlignment(SwingConstants.CENTER);
+        }
+        JButton[] bottomButton = new JButton[5];
+        for(int x =1;x<=4;x++){
+            bottomButton[x] = new JButton(String.valueOf(x));
+            bottomButton[x].setHorizontalAlignment(SwingConstants.CENTER);
+        }
+        for(int x=1;x<=4; x++){
+            bottomLine.add(label0[x]);
+            bottomLine.add(bottomButton[x]);
+        }
+        bottomLine.add(label0[5]);
+
+        //TODO: add file edit and help drop down menus
     }
 }
