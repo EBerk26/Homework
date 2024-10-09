@@ -7,6 +7,8 @@ public class HardLayoutExample {
     public HardLayoutExample() {
 
 
+
+
         JLabel[] top0 = new JLabel[6];
         for (int x =0;x<=5;x++){
             top0[x] = new JLabel("Top 0");
@@ -15,9 +17,36 @@ public class HardLayoutExample {
         }
 
         JFrame frame = new JFrame("Optional Example");
-        frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(700,800);
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu file = new JMenu("File");
+        JMenu edit = new JMenu("Edit");
+        JMenu help = new JMenu("Help");
+
+        JMenuItem[] menuItems = new JMenuItem[12];
+        for(int x = 0;x<=11;x++){
+            menuItems[x] = new JMenuItem(String.valueOf(x));
+        }
+
+        for(int x = 0;x<=3;x++){
+            file.add(menuItems[x]);
+        }
+        for(int x=4;x<=7;x++){
+            edit.add(menuItems[x]);
+        }
+        for(int x=8;x<=11;x++){
+            help.add(menuItems[x]);
+        }
+
+
+        menuBar.add(file);
+        menuBar.add(edit);
+        menuBar.add(help);
+
+        frame.setJMenuBar(menuBar);
 
         JPanel mainPanel = new JPanel(new GridLayout(2,1));
         JPanel bigTop = new JPanel(new GridLayout(1,2));
@@ -69,6 +98,8 @@ public class HardLayoutExample {
             bottomLine.add(bottomButton[x]);
         }
         bottomLine.add(label0[5]);
+        frame.setVisible(true);
+
 
         //TODO: add file edit and help drop down menus
     }
