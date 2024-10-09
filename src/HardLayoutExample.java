@@ -99,8 +99,5 @@ public class HardLayoutExample {
         }
         bottomLine.add(label0[5]);
         frame.setVisible(true);
-
-
-        //TODO: add file edit and help drop down menus
     }
 }
